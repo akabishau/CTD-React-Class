@@ -16,10 +16,10 @@ module.exports = {
       'warn',
       { allowConstantExport: true },
     ],
+    'react/prop-types': [0],
     'semi': ['error', 'always', { 'omitLastInOneLineBlock': false}],
     'comma-dangle': ['error', 'never'],
     'indent': ['error', 'tab'],
     quotes: ['error', 'single']
-    
   }
 }
