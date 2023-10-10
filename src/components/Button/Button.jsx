@@ -2,7 +2,7 @@ import './Button.css';
 
 function Button() {
 	return (
-		<button className='button accent' type="submit">Add</button>
+		<button className='addButton' type="submit">Add</button>
 	);
 }
 

@@ -1,18 +1,13 @@
-.button {
-    border-radius: 6px;
+.addButton {
+    background-color: #555555;
+    color: #ffffff;
+    padding: 10px 15px;
     border: none;
-    padding: 8px 16px;
-    font-family: inherit;
+    border-radius: 5px;
     cursor: pointer;
-    transition: background 0.25s;
-    font-size: 16px;
+    transition: background-color 0.3s;
 }
 
-.accent {
-    background: rgb(54, 83, 157);
+.addButton:hover {
+    background-color: #6c6c6c;
 }
-
-.accent:hover {
-    background: rgb(29, 64, 155)
-}
-
