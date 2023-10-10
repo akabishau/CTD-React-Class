@@ -1,3 +1,4 @@
+import './AddTodoForm.css';
 import Button from '../Button/Button';
 
 function AddTodoForm({ onAddTodo }) {
@@ -11,10 +12,13 @@ function AddTodoForm({ onAddTodo }) {
 	};
 
 	return (
-		<form onSubmit={handleAddTodo}>
-			<label htmlFor="todoTitle">Title</label>
-			<input type="text" id="todoTitle"/>
-			<Button />
+		<form className="addTodoForm" onSubmit={handleAddTodo}>
+			<label htmlFor="todoTitle">Enter ToDo</label>
+			<div className="inputWrapper">
+				<input type="text" id="todoTitle"/>
+				<Button />
+			</div>
+			
 		</form>
 	);
 }
