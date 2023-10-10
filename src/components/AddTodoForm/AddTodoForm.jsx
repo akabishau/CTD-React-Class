@@ -1,11 +1,12 @@
 import Button from '../Button/Button';
 
-export default function AddTodoForm() {
+function AddTodoForm({ onAddTodo }) {
 
 	const handleAddTodo = (event) => {
 		event.preventDefault();
 		const todoTitle = event.target.elements.todoTitle.value;
 		console.log(todoTitle);
+		onAddTodo(todoTitle);
 		event.target.reset();
 	};
 
@@ -17,3 +18,5 @@ export default function AddTodoForm() {
 		</form>
 	);
 }
+
+export default AddTodoForm;
