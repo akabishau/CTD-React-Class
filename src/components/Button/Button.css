@@ -1,13 +1,20 @@
-.addButton {
+.add-button {
   background-color: #555555;
   color: #ffffff;
-  padding: 10px 15px;
-  border: none;
+  padding: 10px 20px;
+  border: 2px solid #ffffff;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition:
+    background-color 0.3s,
+    transform 0.3s,
+    border-color 0.3s;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.addButton:hover {
+.add-button:hover {
   background-color: #6c6c6c;
+  transform: scale(1.01);
+  border-color: #eeeeee;
 }

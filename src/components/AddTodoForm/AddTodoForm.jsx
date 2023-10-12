@@ -27,7 +27,7 @@ function AddTodoForm({ onAddTodo }) {
           onChange={handleTitleChange}
           value={todoTitle}
         />
-        <Button />
+        <Button className={'add-button'} type={'submit'} label={'ADD'} />
       </div>
     </form>
   );
