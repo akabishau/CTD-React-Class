@@ -15,7 +15,6 @@ function AddTodoForm({ onAddTodo }) {
     console.log(todoTitle);
     onAddTodo(todoTitle);
     setTodoTitle('');
-    event.target.reset();
   };
 
   return (
