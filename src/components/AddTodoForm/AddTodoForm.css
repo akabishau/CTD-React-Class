@@ -1,35 +1,35 @@
 .addTodoForm {
-    background-color: #3a3a3a;
-    padding: 15px;
-    border-radius: 5px;
+  background-color: #3a3a3a;
+  padding: 15px;
+  border-radius: 5px;
 }
 
 .addTodoForm label {
-    color: #ffffff;
+  color: #ffffff;
 }
 
 .addTodoForm .inputWrapper {
-    display: flex;
-    gap: 10px;
-    align-items: center; /* vertically alignement */
+  display: flex;
+  gap: 10px;
+  align-items: center; /* vertically alignement */
 }
 
-.addTodoForm input[type="text"] {
-    flex: 1; /* Allows the input to take the maximum available width */
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: #555555;
-    color: #ffffff;
-    cursor: pointer;
-    transition: background-color 0.3s;
+.addTodoForm input[type='text'] {
+  flex: 1; /* Allows the input to take the maximum available width */
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #555555;
+  color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-.addTodoForm input[type="text"]:focus {
-    outline: none;
-    background-color: #6c6c6c;
+.addTodoForm input[type='text']:focus {
+  outline: none;
+  background-color: #6c6c6c;
 }
 
-.addTodoForm input[type="text"]:hover {
-    background-color: #6c6c6c;
+.addTodoForm input[type='text']:hover {
+  background-color: #6c6c6c;
 }
