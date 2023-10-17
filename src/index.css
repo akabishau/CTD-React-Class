@@ -17,7 +17,8 @@
 body {
   margin: 0;
   display: flex;
-  place-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
   min-width: 320px;
   min-height: 100vh;
 }
@@ -25,9 +26,4 @@ body {
 h1 {
   font-size: 2em;
   line-height: 1.1;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
 }

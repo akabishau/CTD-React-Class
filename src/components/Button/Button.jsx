@@ -1,9 +1,9 @@
 import './Button.css';
 
-function Button() {
+function Button({ className, label, type }) {
   return (
-    <button className="addButton" type="submit">
-      Add
+    <button className={className} type={type}>
+      {label}
     </button>
   );
 }
