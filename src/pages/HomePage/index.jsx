@@ -1,5 +1,5 @@
 import './styles.css';
-import { useEffect, useState } from 'react';
+import useLocalTodoList from '../../hooks/useLocalTodoList';
 import DefaultLayout from '../../layouts/DefaultLayout';
 import TodoList from '../../components/TodoList/TodoList';
 import AddTodoForm from '../../components/AddTodoForm/AddTodoForm';
@@ -13,16 +13,7 @@ const INITIAL_DATA = [
 ];
 
 function HomePage() {
-  // const [todoList, setTodoList] = useState(INITIAL_DATA);
-  const [todoList, setTodoList] = useState(() => {
-    const localList = localStorage.getItem('todolist');
-    return localList ? JSON.parse(localList) : INITIAL_DATA;
-  });
-
-  useEffect(() => {
-    console.log('app reloaded, todolist updated');
-    localStorage.setItem('todolist', JSON.stringify(todoList));
-  }, [todoList]);
+  const [todoList, setTodoList] = useLocalTodoList(INITIAL_DATA);
 
   const addTodo = todo => {
     if (todo === '') return;

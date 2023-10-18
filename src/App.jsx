@@ -3,9 +3,12 @@ import HomePage from './pages/HomePage';
 
 function App() {
   return (
-    <div className="base-container">
-      <HomePage />
-    </div>
+    // using fragments just for assignment
+    <>
+      <div className="base-container">
+        <HomePage />
+      </div>
+    </>
   );
 }
 
