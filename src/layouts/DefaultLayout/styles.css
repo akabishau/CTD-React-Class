@@ -1,0 +1,21 @@
+.app-container {
+  display: grid;
+  grid-template-rows: auto 1fr auto; /* header, main, footer */
+  align-items: start;
+  width: 100%;
+}
+
+header {
+  background-color: #3a3a3a;
+  color: black;
+  height: 50px;
+}
+
+main {
+}
+
+footer {
+  background-color: #3a3a3a;
+  color: black;
+  height: 50px;
+}
