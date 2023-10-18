@@ -3,7 +3,7 @@ import useLocalTodoList from '../hooks/useLocalTodoList';
 import DefaultLayout from '../layouts/Layout';
 import TodoList from '../components/TodoList/TodoList';
 import AddTodoForm from '../components/AddTodoForm/AddTodoForm';
-import EmptyList from '../components/EmptyList/EmptyList';
+import EmptyListMessage from '../components/EmptyListMessage';
 
 const INITIAL_DATA = [
   { id: '87a44d78-11d9-4748-9e98-ea65838a0b0b', title: 'Buy groceries' },
@@ -28,7 +28,11 @@ function HomePage() {
     <DefaultLayout>
       <H1>My List</H1>
       <AddTodoForm onAddTodo={addTodo} />
-      {todoList.length === 0 ? <EmptyList /> : <TodoList todoList={todoList} />}
+      {todoList.length === 0 ? (
+        <EmptyListMessage />
+      ) : (
+        <TodoList todoList={todoList} />
+      )}
     </DefaultLayout>
   );
 }
