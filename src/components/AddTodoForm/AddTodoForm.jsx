@@ -1,5 +1,5 @@
 import './AddTodoForm.css';
-import Button from '../Button/Button';
+import Button from '../Button';
 import { useState } from 'react';
 
 function AddTodoForm({ onAddTodo }) {
@@ -27,7 +27,7 @@ function AddTodoForm({ onAddTodo }) {
           onChange={handleTitleChange}
           value={todoTitle}
         />
-        <Button className={'add-button'} type={'submit'} label={'ADD'} />
+        <Button variant={'add'} type={'submit'} label={'ADD'} />
       </div>
     </form>
   );
