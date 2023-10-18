@@ -1,6 +1,6 @@
 import { H1 } from '../styles/TextStyles';
 import useLocalTodoList from '../hooks/useLocalTodoList';
-import DefaultLayout from '../layouts/DefaultLayout';
+import DefaultLayout from '../layouts/Layout';
 import TodoList from '../components/TodoList/TodoList';
 import AddTodoForm from '../components/AddTodoForm/AddTodoForm';
 import EmptyList from '../components/EmptyList/EmptyList';
