@@ -1,10 +1,9 @@
-import './styles.css';
-import { H1 } from '../../styles/TextStyles';
-import useLocalTodoList from '../../hooks/useLocalTodoList';
-import DefaultLayout from '../../layouts/DefaultLayout';
-import TodoList from '../../components/TodoList/TodoList';
-import AddTodoForm from '../../components/AddTodoForm/AddTodoForm';
-import EmptyList from '../../components/EmptyList/EmptyList';
+import { H1 } from '../styles/TextStyles';
+import useLocalTodoList from '../hooks/useLocalTodoList';
+import DefaultLayout from '../layouts/DefaultLayout';
+import TodoList from '../components/TodoList/TodoList';
+import AddTodoForm from '../components/AddTodoForm/AddTodoForm';
+import EmptyList from '../components/EmptyList/EmptyList';
 
 const INITIAL_DATA = [
   { id: '87a44d78-11d9-4748-9e98-ea65838a0b0b', title: 'Buy groceries' },
