@@ -1,4 +1,5 @@
 import './styles.css';
+import { H1 } from '../../styles/TextStyles';
 import useLocalTodoList from '../../hooks/useLocalTodoList';
 import DefaultLayout from '../../layouts/DefaultLayout';
 import TodoList from '../../components/TodoList/TodoList';
@@ -26,7 +27,7 @@ function HomePage() {
 
   return (
     <DefaultLayout>
-      <h1>My List</h1>
+      <H1>My List</H1>
       <AddTodoForm onAddTodo={addTodo} />
       {todoList.length === 0 ? <EmptyList /> : <TodoList todoList={todoList} />}
     </DefaultLayout>
