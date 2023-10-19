@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import Button from './Button';
+import InputWithLabel from './InputWithLabel';
 import { useState } from 'react';
 
 export default function AddTodoForm({ onAddTodo }) {
@@ -12,23 +13,19 @@ export default function AddTodoForm({ onAddTodo }) {
 
   const handleAddTodo = event => {
     event.preventDefault();
-    console.log(todoTitle);
     onAddTodo(todoTitle);
     setTodoTitle('');
   };
 
   return (
     <Form onSubmit={handleAddTodo}>
-      <label htmlFor="todoTitle">Enter ToDo</label>
-      <InputWrapper>
-        <Input
-          type="text"
-          id="todoTitle"
-          onChange={handleTitleChange}
-          value={todoTitle}
-        />
+      <Wrapper>
+        <InputWithLabel value={todoTitle} onChange={handleTitleChange}>
+          <span>Title</span>
+        </InputWithLabel>
+
         <Button type={'submit'} />
-      </InputWrapper>
+      </Wrapper>
     </Form>
   );
 }
@@ -40,28 +37,9 @@ const Form = styled.form`
   margin-bottom: 20px;
 `;
 
-const InputWrapper = styled.div`
-  display: flex;
+const Wrapper = styled.div`
+  display: grid;
+  grid-template-columns: 1fr auto;
   gap: 10px;
-  align-items: center; /* vertically alignement */
-`;
-
-const Input = styled.input`
-  flex: 1; /* Allows the input to take the maximum available width */
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  background-color: #555555;
-  color: #ffffff;
-  cursor: pointer;
-  transition: background-color 0.3s;
-
-  &:focus {
-    outline: none;
-    background-color: #6c6c6c;
-  }
-
-  &:hover {
-    background-color: #6c6c6c;
-  }
+  align-items: end; /* vertically alignement */
 `;
