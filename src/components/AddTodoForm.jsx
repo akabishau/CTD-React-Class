@@ -27,7 +27,7 @@ export default function AddTodoForm({ onAddTodo }) {
           onChange={handleTitleChange}
           value={todoTitle}
         />
-        <Button variant={'add'} type={'submit'} label={'ADD'} />
+        <Button type={'submit'} />
       </InputWrapper>
     </Form>
   );
