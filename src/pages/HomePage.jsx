@@ -24,6 +24,11 @@ function HomePage() {
     setTodoList([newTodo, ...todoList]);
   };
 
+  const removeTodo = id => {
+    const list = todoList.filter(todo => todo.id !== id);
+    setTodoList(list);
+  };
+
   return (
     <DefaultLayout>
       <H1>My List</H1>
@@ -31,7 +36,7 @@ function HomePage() {
       {todoList.length === 0 ? (
         <EmptyListMessage />
       ) : (
-        <TodoList todoList={todoList} />
+        <TodoList todoList={todoList} onRemoveTod0={removeTodo} />
       )}
     </DefaultLayout>
   );
