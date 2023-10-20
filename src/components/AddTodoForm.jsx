@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Button from './Button';
+import Button from './TextButton';
 import InputWithLabel from './InputWithLabel';
 import { useState } from 'react';
 
@@ -24,7 +24,7 @@ export default function AddTodoForm({ onAddTodo }) {
           <span>Title</span>
         </InputWithLabel>
 
-        <Button type={'submit'} />
+        <Button variant="add" type="submit" />
       </Wrapper>
     </Form>
   );

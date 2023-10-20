@@ -1,7 +1,10 @@
 import styled from 'styled-components';
 
-export default function Button({ type }) {
-  return <AddButton type={type}>ADD</AddButton>;
+export default function TextButton({ type, variant, onClick }) {
+  if (variant == 'add') {
+    return <AddButton type={type}>ADD</AddButton>;
+  }
+  return <button onClick={onClick}>Text Button</button>;
 }
 
 const AddButton = styled.button`

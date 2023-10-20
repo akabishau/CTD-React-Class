@@ -3,9 +3,9 @@ import styled from 'styled-components';
 export default function DefaultLayout({ children }) {
   return (
     <Wrapper>
-      <Header>Future Header</Header>
+      <Header>Future Header goes there...</Header>
       <main>{children}</main>
-      <Footer>Future Footer</Footer>
+      <Footer>Future Footer goes there...</Footer>
     </Wrapper>
   );
 }

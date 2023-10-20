@@ -9,7 +9,7 @@ export default function IconButton({ variant, onClick }) {
       </RemoveButton>
     );
   }
-  return <button onClick={onClick}>Button</button>;
+  return <button onClick={onClick}>Icon Button</button>;
 }
 
 const RemoveIcon = styled(MdOutlineRemoveCircle)`

@@ -11,7 +11,6 @@ function useTodoManager() {
   const [todoList, setTodoList] = useLocalStorage('todolist', INITIAL_DATA);
 
   const addTodo = todo => {
-    console.log('add todo');
     if (todo === '') return; // temp fix
     const newTodo = {
       id: crypto.randomUUID(),
@@ -21,7 +20,6 @@ function useTodoManager() {
   };
 
   const removeTodo = id => {
-    console.log('removeTodo clicked');
     setTodoList(list => list.filter(todo => todo.id !== id));
   };
 
