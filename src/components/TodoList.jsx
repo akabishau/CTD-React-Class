@@ -1,28 +1,28 @@
-// import TodoListItem from './TodoListItem';
 import styled from 'styled-components';
+import IconButton from './IconButton';
 
-function TodoList({ todoList }) {
+export default function TodoList({ todoList, onRemoveTodo }) {
   return (
     <ul>
       {todoList.map(item => (
         <Item key={item.id}>
           <span>{item.title}</span>
-          <button onClick={() => console.log('remove')}>REMOVE</button>
+          <IconButton variant="remove" onClick={() => onRemoveTodo(item.id)} />
         </Item>
       ))}
     </ul>
   );
 }
 
-export default TodoList;
-
 const Item = styled.li`
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
   background-color: #3a3a3a;
   color: #ffffff;
   padding: 10px 15px;
   margin-bottom: 5px;
   border-radius: 5px;
-  cursor: pointer;
   transition: background-color 0.3s;
 
   &:hover {
