@@ -1,4 +1,5 @@
 import useLocalStorage from './useLocalStorage';
+import { useState, useEffect } from 'react';
 
 const INITIAL_DATA = [
   { id: '87a44d78-11d9-4748-9e98-ea65838a0b0b', title: 'Buy groceries' },
@@ -9,6 +10,14 @@ const INITIAL_DATA = [
 
 function useTodoManager() {
   const [todoList, setTodoList] = useLocalStorage('todolist');
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // fake delay for sync data fetch from local storage
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+  }, []);
 
   if (todoList === null) {
     console.log('empty todo, about to load init data...');
@@ -30,7 +39,7 @@ function useTodoManager() {
     setTodoList(list => list.filter(todo => todo.id !== id));
   };
 
-  return [todoList, addTodo, removeTodo];
+  return [todoList, addTodo, removeTodo, isLoading];
 }
 
 export default useTodoManager;
