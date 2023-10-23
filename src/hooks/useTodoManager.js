@@ -8,9 +8,15 @@ const INITIAL_DATA = [
 ];
 
 function useTodoManager() {
-  const [todoList, setTodoList] = useLocalStorage('todolist', INITIAL_DATA);
+  const [todoList, setTodoList] = useLocalStorage('todolist');
+
+  if (todoList === null) {
+    console.log('empty todo, about to load init data...');
+    setTodoList(INITIAL_DATA);
+  }
 
   const addTodo = todo => {
+    console.log(`adding todo: ${todo}`);
     if (todo === '') return; // temp fix
     const newTodo = {
       id: crypto.randomUUID(),
@@ -20,6 +26,7 @@ function useTodoManager() {
   };
 
   const removeTodo = id => {
+    console.log(`removing todo: ${id}`);
     setTodoList(list => list.filter(todo => todo.id !== id));
   };
 

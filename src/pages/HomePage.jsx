@@ -15,11 +15,13 @@ function HomePage() {
     return <LoadingSpinner />;
   }
 
+  const isEmpty = !todoList || todoList.length === 0;
+
   return (
     <DefaultLayout>
       <H1>My List</H1>
       <AddTodoForm onAddTodo={addTodo} />
-      {todoList.length === 0 ? (
+      {isEmpty ? (
         <EmptyListMessage />
       ) : (
         <TodoList todoList={todoList} onRemoveTodo={removeTodo} />
