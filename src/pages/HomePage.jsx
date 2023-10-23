@@ -4,14 +4,12 @@ import TodoList from '../components/TodoList';
 import AddTodoForm from '../components/AddTodoForm';
 import EmptyListMessage from '../components/EmptyListMessage';
 import LoadingSpinner from '../components/LoadingSpinner';
-
 import useTodoManager from '../hooks/useTodoManager';
 
 function HomePage() {
   const [todoList, addTodo, removeTodo, isLoading] = useTodoManager();
 
   if (isLoading) {
-    console.log('isLoading');
     return <LoadingSpinner />;
   }
 
