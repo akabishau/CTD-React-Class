@@ -13,10 +13,26 @@ function useTodoManager() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // fake delay for sync data fetch from local storage
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
+    // fake delay using promises to simulate async operation - very confusing assignment
+    new Promise((resolve, reject) => {
+      setTimeout(() => {
+        if (todoList) {
+          resolve(todoList);
+        } else {
+          reject('There is no locally saved data');
+        }
+      }, 2000);
+    })
+      .then(result => {
+        setTodoList(result);
+      })
+      .catch(error => {
+        console.error(error);
+        setTodoList(INITIAL_DATA);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
   }, []);
 
   if (todoList === null) {
