@@ -1,4 +1,5 @@
 import useLocalStorage from './useLocalStorage';
+import { useState, useEffect } from 'react';
 
 const INITIAL_DATA = [
   { id: '87a44d78-11d9-4748-9e98-ea65838a0b0b', title: 'Buy groceries' },
@@ -8,7 +9,35 @@ const INITIAL_DATA = [
 ];
 
 function useTodoManager() {
-  const [todoList, setTodoList] = useLocalStorage('todolist', INITIAL_DATA);
+  const [todoList, setTodoList] = useLocalStorage('todolist');
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // fake delay using promises to simulate async operation - very confusing assignment
+    new Promise((resolve, reject) => {
+      setTimeout(() => {
+        if (todoList) {
+          resolve(todoList);
+        } else {
+          reject('There is no locally saved data');
+        }
+      }, 2000);
+    })
+      .then(result => {
+        setTodoList(result);
+      })
+      .catch(error => {
+        console.error(error);
+        setTodoList(INITIAL_DATA);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+  }, []);
+
+  if (todoList === null) {
+    setTodoList(INITIAL_DATA);
+  }
 
   const addTodo = todo => {
     if (todo === '') return; // temp fix
@@ -23,7 +52,7 @@ function useTodoManager() {
     setTodoList(list => list.filter(todo => todo.id !== id));
   };
 
-  return [todoList, addTodo, removeTodo];
+  return [todoList, addTodo, removeTodo, isLoading];
 }
 
 export default useTodoManager;
