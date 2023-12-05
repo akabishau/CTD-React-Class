@@ -15,11 +15,36 @@ export const fetchTodos = async () => {
     }
 
     const data = await response.json();
+
     return data.records.map(record => ({
       id: record.id,
       title: record.fields.title
     }));
   } catch (error) {
     console.error('Fetch error:', error);
+    throw error;
+  }
+};
+
+export const addTodo = async title => {
+  try {
+    const response = await fetch(BASE_URL, {
+      method: 'POST',
+      headers,
+      body: JSON.stringify({
+        fields: { title }
+      })
+    });
+    if (!response.ok) {
+      throw new Error(`Error: ${response.status}`);
+    }
+
+    const record = await response.json();
+    return {
+      id: record.id,
+      title: record.fields.title
+    };
+  } catch (error) {
+    console.error('Add error:', error);
   }
 };

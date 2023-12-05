@@ -17,13 +17,14 @@ function useTodoManager() {
     }
   };
 
-  const addTodo = todo => {
-    if (todo === '') return; // temp fix
-    const newTodo = {
-      id: crypto.randomUUID(),
-      title: todo
-    };
-    setTodoList([newTodo, ...todoList]);
+  const addTodo = async title => {
+    // add creation spinner
+    try {
+      const newTodo = await todoService.addTodo(title);
+      setTodoList([newTodo, ...todoList]);
+    } catch (error) {
+      console.error('Error adding todo: '.error);
+    }
   };
 
   const removeTodo = id => {
