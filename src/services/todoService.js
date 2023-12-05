@@ -48,3 +48,17 @@ export const addTodo = async title => {
     console.error('Add error:', error);
   }
 };
+
+export const removeTodo = async id => {
+  try {
+    const response = await fetch(`${BASE_URL}/${id}`, {
+      method: 'DELETE',
+      headers
+    });
+    if (!response.ok) {
+      throw new Error(`Error: ${response.status}`);
+    }
+  } catch (error) {
+    console.error('Remove error:', error);
+  }
+};

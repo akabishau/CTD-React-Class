@@ -27,8 +27,14 @@ function useTodoManager() {
     }
   };
 
-  const removeTodo = id => {
-    setTodoList(list => list.filter(todo => todo.id !== id));
+  const removeTodo = async id => {
+    // add creation indicator
+    try {
+      await todoService.removeTodo(id);
+      setTodoList(list => list.filter(todo => todo.id !== id));
+    } catch (error) {
+      console.error('Error deleting todo: ', error);
+    }
   };
 
   useEffect(() => {
