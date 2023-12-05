@@ -7,16 +7,22 @@ import EmptyListMessage from '../components/EmptyListMessage';
 import useTodoManager from '../hooks/useTodoManager';
 
 function HomePage() {
-  const [todoList, addTodo, removeTodo] = useTodoManager();
+  const [todoList, isLoading, addTodo, removeTodo] = useTodoManager();
 
   return (
     <DefaultLayout>
       <H1>My List</H1>
       <AddTodoForm onAddTodo={addTodo} />
-      {todoList.length === 0 ? (
-        <EmptyListMessage />
+      {isLoading ? (
+        <h3>Loading...</h3>
       ) : (
-        <TodoList todoList={todoList} onRemoveTodo={removeTodo} />
+        <>
+          {todoList.length === 0 ? (
+            <EmptyListMessage />
+          ) : (
+            <TodoList todoList={todoList} onRemoveTodo={removeTodo} />
+          )}
+        </>
       )}
     </DefaultLayout>
   );
