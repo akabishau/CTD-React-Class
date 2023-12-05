@@ -11,7 +11,7 @@ function useTodoManager() {
       const todos = await todoService.fetchTodos();
       setTodoList(todos);
     } catch (error) {
-      console.log(error);
+      // handle error in UI
     } finally {
       setIsLoading(false);
     }
@@ -23,7 +23,7 @@ function useTodoManager() {
       const newTodo = await todoService.addTodo(title);
       setTodoList([newTodo, ...todoList]);
     } catch (error) {
-      console.error('Error adding todo: '.error);
+      // handle error in UI
     }
   };
 
@@ -33,7 +33,7 @@ function useTodoManager() {
       await todoService.removeTodo(id);
       setTodoList(list => list.filter(todo => todo.id !== id));
     } catch (error) {
-      console.error('Error deleting todo: ', error);
+      // handle error in UI
     }
   };
 

@@ -22,7 +22,7 @@ export const fetchTodos = async () => {
     }));
   } catch (error) {
     console.error('Fetch error:', error);
-    throw error;
+    throw new Error('Something went wrong while interracting with API');
   }
 };
 
@@ -46,6 +46,7 @@ export const addTodo = async title => {
     };
   } catch (error) {
     console.error('Add error:', error);
+    throw new Error('Something went wrong while interracting with API');
   }
 };
 
@@ -60,5 +61,6 @@ export const removeTodo = async id => {
     }
   } catch (error) {
     console.error('Remove error:', error);
+    throw new Error('Something went wrong while interracting with API');
   }
 };
