@@ -1,29 +1,47 @@
-import useLocalStorage from './useLocalStorage';
-
-const INITIAL_DATA = [
-  { id: '87a44d78-11d9-4748-9e98-ea65838a0b0b', title: 'Buy groceries' },
-  { id: 'a762b846-0e90-4a04-9b92-6d5a8d5a4d06', title: 'Clean the house' },
-  { id: '1ad7b8a2-18fe-4bf2-9c15-7b333ecef700', title: 'Finish the report' },
-  { id: '600bfcd3-635c-4d89-a267-1c73d8beeda7', title: 'Call the bank' }
-];
+import { useEffect, useState } from 'react';
+import * as todoService from '../services/todoService';
 
 function useTodoManager() {
-  const [todoList, setTodoList] = useLocalStorage('todolist', INITIAL_DATA);
+  const [todoList, setTodoList] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const addTodo = todo => {
-    if (todo === '') return; // temp fix
-    const newTodo = {
-      id: crypto.randomUUID(),
-      title: todo
-    };
-    setTodoList([newTodo, ...todoList]);
+  const fetchTodos = async () => {
+    setIsLoading(true);
+    try {
+      const todos = await todoService.fetchTodos();
+      setTodoList(todos);
+    } catch (error) {
+      // handle error in UI
+    } finally {
+      setIsLoading(false);
+    }
   };
 
-  const removeTodo = id => {
-    setTodoList(list => list.filter(todo => todo.id !== id));
+  const addTodo = async title => {
+    // add creation spinner
+    try {
+      const newTodo = await todoService.addTodo(title);
+      setTodoList([newTodo, ...todoList]);
+    } catch (error) {
+      // handle error in UI
+    }
   };
 
-  return [todoList, addTodo, removeTodo];
+  const removeTodo = async id => {
+    // add creation indicator
+    try {
+      await todoService.removeTodo(id);
+      setTodoList(list => list.filter(todo => todo.id !== id));
+    } catch (error) {
+      // handle error in UI
+    }
+  };
+
+  useEffect(() => {
+    fetchTodos();
+  }, []);
+
+  return [todoList, isLoading, addTodo, removeTodo];
 }
 
 export default useTodoManager;
