@@ -1,7 +1,8 @@
 import { useEffect, useRef } from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
-export default function InputWithLabel({ children, value, onChange }) {
+export default function InputWithLabel({ value, onChange, children }) {
   const unputId = crypto.randomUUID();
   let inputRef = useRef(null);
 
@@ -22,6 +23,12 @@ export default function InputWithLabel({ children, value, onChange }) {
     </Wrapper>
   );
 }
+
+InputWithLabel.propTypes = {
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+  children: PropTypes.node.isRequired
+};
 
 const Wrapper = styled.div`
   display: grid;

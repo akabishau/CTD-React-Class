@@ -1,11 +1,5 @@
 import styled from 'styled-components';
-
-export default function TextButton({ type, variant, onClick }) {
-  if (variant == 'add') {
-    return <AddButton type={type}>ADD</AddButton>;
-  }
-  return <button onClick={onClick}>Text Button</button>;
-}
+import PropTypes from 'prop-types';
 
 const AddButton = styled.button`
   padding: 10px 20px;
@@ -28,3 +22,38 @@ const AddButton = styled.button`
     border-color: #eeeeee;
   }
 `;
+
+// mapping object for button variants
+const BUTTON_VARIANTS = {
+  add: AddButton
+};
+
+export default function TextButton({
+  type = 'button',
+  variant,
+  // onClick = () => {
+  //   if (type === 'submit') {
+  //     () => {};
+  //   } else {
+  //     console.warn(`onClick is not provided for ${variant} button`);
+  //   }
+  // }
+  onClick = type !== 'submit'
+    ? () => console.warn(`onClick is not provided for ${variant} button`)
+    : undefined
+}) {
+  const Button = BUTTON_VARIANTS[variant];
+
+  return (
+    <Button type={type} onClick={onClick}>
+      {variant.toUpperCase()}
+    </Button>
+  );
+}
+
+TextButton.propTypes = {
+  type: PropTypes.oneOf(['button', 'submit', 'reset']).isRequired,
+  variant: PropTypes.oneOf(Object.keys(BUTTON_VARIANTS)).isRequired,
+  // onClick is optional because for 'submit' type buttons, the form's onSubmit handler is used instead
+  onClick: PropTypes.func
+};
