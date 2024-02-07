@@ -1,7 +1,6 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-//TODO: explore option to use styled-components' css prop for shared styles
-export const AddButton = styled.button`
+const baseButtonStyles = css`
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
@@ -21,4 +20,15 @@ export const AddButton = styled.button`
     background-color: #6c6c6c;
     border-color: #eeeeee;
   }
+`;
+
+export const AddButton = styled.button`
+  ${baseButtonStyles}
+`;
+
+export const SortButton = styled.button`
+  ${baseButtonStyles}
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
