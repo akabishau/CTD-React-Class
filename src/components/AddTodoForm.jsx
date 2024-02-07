@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import Button from './TextButton';
 import InputWithLabel from './InputWithLabel';
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 
 export default function AddTodoForm({ onAddTodo }) {
   const [todoTitle, setTodoTitle] = useState('');
@@ -29,6 +30,10 @@ export default function AddTodoForm({ onAddTodo }) {
     </Form>
   );
 }
+
+AddTodoForm.propTypes = {
+  onAddTodo: PropTypes.func.isRequired
+};
 
 const Form = styled.form`
   background-color: #3a3a3a;

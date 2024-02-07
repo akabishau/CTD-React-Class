@@ -1,16 +1,6 @@
 import styled from 'styled-components';
 import { MdOutlineRemoveCircle } from 'react-icons/md';
-
-export default function IconButton({ variant, onClick }) {
-  if (variant == 'remove') {
-    return (
-      <RemoveButton onClick={onClick}>
-        <RemoveIcon />
-      </RemoveButton>
-    );
-  }
-  return <button onClick={onClick}>Icon Button</button>;
-}
+import PropTypes from 'prop-types';
 
 const RemoveIcon = styled(MdOutlineRemoveCircle)`
   width: 1.5em;
@@ -33,3 +23,23 @@ const RemoveButton = styled.button`
     color: #ff5555;
   }
 `;
+
+const BUTTON_VARIANTS = {
+  remove: { Button: RemoveButton, Icon: RemoveIcon }
+};
+
+export default function IconButton({ type = 'button', variant, onClick }) {
+  const { Button, Icon } = BUTTON_VARIANTS[variant];
+
+  return (
+    <Button type={type} onClick={onClick}>
+      <Icon />
+    </Button>
+  );
+}
+
+IconButton.propTypes = {
+  type: PropTypes.oneOf(['button', 'submit', 'reset']),
+  variant: PropTypes.oneOf(Object.keys(BUTTON_VARIANTS)).isRequired,
+  onClick: PropTypes.func.isRequired
+};
