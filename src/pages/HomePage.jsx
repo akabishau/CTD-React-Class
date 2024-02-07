@@ -3,11 +3,18 @@ import DefaultLayout from '../layouts/DefaultLayout';
 import TodoList from '../components/TodoList';
 import AddTodoForm from '../components/AddTodoForm';
 import EmptyListMessage from '../components/EmptyListMessage';
-
+import ListControls from '../components/ListControls';
 import useTodoManager from '../hooks/useTodoManager';
 
 function HomePage() {
-  const [todoList, isLoading, addTodo, removeTodo] = useTodoManager();
+  const [
+    todoList,
+    isLoading,
+    addTodo,
+    removeTodo,
+    titleAscOrder,
+    setTitleAscOrder
+  ] = useTodoManager();
 
   return (
     <DefaultLayout>
@@ -20,7 +27,13 @@ function HomePage() {
           {todoList.length === 0 ? (
             <EmptyListMessage />
           ) : (
-            <TodoList todoList={todoList} onRemoveTodo={removeTodo} />
+            <>
+              <ListControls
+                titleAscOrder={titleAscOrder}
+                setTitleAscOrder={setTitleAscOrder}
+              />
+              <TodoList todoList={todoList} onRemoveTodo={removeTodo} />
+            </>
           )}
         </>
       )}

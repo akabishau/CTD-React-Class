@@ -1,11 +1,31 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo } from 'react';
+import useLocalStorage from '../hooks/useLocalStorage';
 import * as todoService from '../services/todoService';
 
 function useTodoManager() {
   const [todoList, setTodoList] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [titleAscOrder, setTitleAscOrder] = useLocalStorage(
+    'titleAscOrder',
+    true
+  );
+
+  const sortListByTitle = list => {
+    if (list.length === 0) {
+      return list;
+    }
+    console.log('sorting list');
+    return [...list].sort((a, b) => {
+      return titleAscOrder
+        ? a.title.localeCompare(b.title)
+        : b.title.localeCompare(a.title);
+    });
+  };
+
+  // const sortListbyTitle
 
   const fetchTodos = async () => {
+    console.log('fetching todos');
     setIsLoading(true);
     try {
       const todos = await todoService.fetchTodos();
@@ -41,7 +61,19 @@ function useTodoManager() {
     fetchTodos();
   }, []);
 
-  return [todoList, isLoading, addTodo, removeTodo];
+  const sortedTodoList = useMemo(
+    () => sortListByTitle(todoList),
+    [titleAscOrder, todoList]
+  );
+
+  return [
+    sortedTodoList,
+    isLoading,
+    addTodo,
+    removeTodo,
+    titleAscOrder,
+    setTitleAscOrder
+  ];
 }
 
 export default useTodoManager;
