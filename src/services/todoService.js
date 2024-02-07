@@ -9,20 +9,27 @@ const headers = {
 
 export const fetchTodos = async () => {
   try {
-    const response = await fetch(`${BASE_URL}`, { headers });
+    const response = await fetch(
+      `${BASE_URL}?view=Grid%20view&sort[0][field]=title&sort[0][direction]=asc`,
+      { headers }
+    );
     if (!response.ok) {
       throw new Error(`Error: ${response.status}`);
     }
 
     const data = await response.json();
 
-    return data.records.map(record => ({
-      id: record.id,
-      title: record.fields.title
-    }));
+    return data.records
+      .map(record => ({
+        id: record.id,
+        title: record.fields.title
+      }))
+      .sort((a, b) => {
+        return b.title.localeCompare(a.title);
+      });
   } catch (error) {
     console.error('Fetch error:', error);
-    throw new Error('Something went wrong while interracting with API');
+    throw new Error('Something went wronghile interracting with API');
   }
 };
 
