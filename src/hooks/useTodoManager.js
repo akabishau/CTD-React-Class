@@ -14,7 +14,6 @@ function useTodoManager() {
     if (list.length === 0) {
       return list;
     }
-    console.log('sorting list');
     return [...list].sort((a, b) => {
       return titleAscOrder
         ? a.title.localeCompare(b.title)
@@ -41,7 +40,7 @@ function useTodoManager() {
     // add creation spinner
     try {
       const newTodo = await todoService.addTodo(title);
-      setTodoList([newTodo, ...todoList]);
+      setTodoList([...todoList, newTodo]);
     } catch (error) {
       // handle error in UI
     }

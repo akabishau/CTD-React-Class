@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { SortButton } from '../styles/TextButtonStyles';
+import PropTypes from 'prop-types';
 
 function ListControls({ titleAscOrder, setTitleAscOrder }) {
   const handleTitleSortOrderChange = () => {
@@ -16,6 +17,11 @@ function ListControls({ titleAscOrder, setTitleAscOrder }) {
     </ControlsContainer>
   );
 }
+
+ListControls.propTypes = {
+  titleAscOrder: PropTypes.bool.isRequired,
+  setTitleAscOrder: PropTypes.func.isRequired
+};
 
 export default ListControls;
 

@@ -22,7 +22,7 @@ export const fetchTodos = async () => {
     }));
   } catch (error) {
     console.error('Fetch error:', error);
-    throw new Error('Something went wronghile interracting with API');
+    throw new Error('Something went wrong while interracting with API');
   }
 };
 
