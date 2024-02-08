@@ -22,7 +22,6 @@ TodoList.propTypes = {
   onRemoveTodo: PropTypes.func.isRequired
 };
 
-
 function TodoListItem({ item, onRemoveTodo }) {
   return (
     <li className={styles.item}>
