@@ -1,3 +1,4 @@
+/* just for the sake of meeting final project requirements */
 .item {
   display: grid;
   grid-template-columns: 1fr auto;

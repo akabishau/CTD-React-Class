@@ -24,8 +24,8 @@ export default function AddTodoForm({ onAddTodo }) {
         <InputWithLabel value={todoTitle} onChange={handleTitleChange}>
           <span>Title</span>
         </InputWithLabel>
-
-        <Button variant="add" type="submit" />
+        {/* button is disabled if todoTitle is empty*/}
+        <Button variant="add" type="submit" disabled={!todoTitle} />
       </Wrapper>
     </Form>
   );

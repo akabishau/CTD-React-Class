@@ -9,6 +9,7 @@ const BUTTON_VARIANTS = {
 export default function TextButton({
   type = 'button',
   variant,
+  disabled = true,
   onClick = type !== 'submit'
     ? () => console.warn(`onClick is not provided for ${variant} button`)
     : undefined
@@ -16,7 +17,7 @@ export default function TextButton({
   const Button = BUTTON_VARIANTS[variant];
 
   return (
-    <Button type={type} onClick={onClick}>
+    <Button type={type} disabled={disabled} onClick={onClick}>
       {variant.toUpperCase()}
     </Button>
   );
@@ -25,6 +26,7 @@ export default function TextButton({
 TextButton.propTypes = {
   type: PropTypes.oneOf(['button', 'submit', 'reset']).isRequired,
   variant: PropTypes.oneOf(Object.keys(BUTTON_VARIANTS)).isRequired,
+  disabled: PropTypes.bool,
   // onClick is optional because for 'submit' type buttons, the form's onSubmit handler is used instead
   onClick: PropTypes.func
 };
