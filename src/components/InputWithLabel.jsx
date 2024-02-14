@@ -42,6 +42,7 @@ const Input = styled.input`
   border-radius: 5px;
   background-color: #555555;
   color: #ffffff;
+  font-size: inherit;
   cursor: pointer;
   transition: background-color 0.3s;
 
