@@ -24,6 +24,11 @@ const baseButtonStyles = css`
 
 export const AddButton = styled.button`
   ${baseButtonStyles}
+  /* :disabled pseudo-class  */
+  &:disabled {
+    background-color: #cccccc;
+    cursor: default;
+  }
 `;
 
 export const SortButton = styled.button`
