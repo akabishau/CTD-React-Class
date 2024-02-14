@@ -1,9 +1,12 @@
 import styled from 'styled-components';
+import Navigation from '../components/Navigation';
 
 export default function DefaultLayout({ children }) {
   return (
     <Wrapper>
-      <Header>Future Header goes there...</Header>
+      <Header>
+        <Navigation />
+      </Header>
       <main>{children}</main>
       <Footer>Future Footer goes there...</Footer>
     </Wrapper>
@@ -21,6 +24,7 @@ const Header = styled.header`
   background-color: #3a3a3a;
   color: black;
   height: 50px;
+  margin-bottom: 20px;
 `;
 
 const Footer = styled.header`
