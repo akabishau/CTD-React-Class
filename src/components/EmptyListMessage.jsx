@@ -1,11 +1,11 @@
 import styled from 'styled-components';
+import { MESSAGES } from '../constants';
 
 export default function EmptyListMessage() {
   return (
     <Message>
-      {"You don't have any TODOs now 🤔"}
-      <br />
-      {"Let's start by creating the first one! 🚀"}
+      <span>{MESSAGES.EMPTY_LIST}</span>
+      <span>{MESSAGES.START_TODO}</span>
     </Message>
   );
 }
@@ -16,4 +16,9 @@ const Message = styled.p`
   padding: 10px 15px;
   border-radius: 5px;
   text-align: center;
+
+  span {
+    display: block;
+    margin-bottom: 10px;
+  }
 `;
