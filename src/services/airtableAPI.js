@@ -1,4 +1,5 @@
-const BASE_URL = `https://api.airtable.com/v0/${
+const BASE_URL = 'https://api.airtable.com/v0/';
+export const airtable_url = `${BASE_URL}${
   import.meta.env.VITE_AIRTABLE_BASE_ID
 }/${import.meta.env.VITE_TABLE_NAME}`;
 
@@ -9,7 +10,8 @@ const headers = {
 
 export const fetchTodos = async () => {
   try {
-    const response = await fetch(`${BASE_URL}`, { headers });
+    const response = await fetch(airtable_url, { headers });
+    console.log('URL', airtable_url);
     if (!response.ok) {
       throw new Error(`Error: ${response.status}`);
     }
@@ -28,13 +30,14 @@ export const fetchTodos = async () => {
 
 export const addTodo = async title => {
   try {
-    const response = await fetch(BASE_URL, {
+    const response = await fetch(airtable_url, {
       method: 'POST',
       headers,
       body: JSON.stringify({
         fields: { title }
       })
     });
+
     if (!response.ok) {
       throw new Error(`Error: ${response.status}`);
     }
@@ -52,13 +55,14 @@ export const addTodo = async title => {
 
 export const removeTodo = async id => {
   try {
-    const response = await fetch(`${BASE_URL}/${id}`, {
+    const response = await fetch(`${airtable_url}/${id}`, {
       method: 'DELETE',
       headers
     });
     if (!response.ok) {
       throw new Error(`Error: ${response.status}`);
     }
+    return await response.json();
   } catch (error) {
     console.error('Remove error:', error);
     throw new Error('Something went wrong while interracting with API');

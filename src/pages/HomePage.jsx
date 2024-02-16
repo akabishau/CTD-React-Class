@@ -2,9 +2,10 @@ import { H1 } from '../styles/TextStyles';
 import DefaultLayout from '../layouts/DefaultLayout';
 import TodoList from '../components/TodoList';
 import AddTodoForm from '../components/AddTodoForm';
-import EmptyListMessage from '../components/EmptyListMessage';
+import EmptyState from '../components/EmptyState';
 import ListControls from '../components/ListControls';
 import useTodoManager from '../hooks/useTodoManager';
+import { EMPTY_LIST_MESSAGE } from '../constants/uiConfig';
 
 function HomePage() {
   const [
@@ -25,7 +26,7 @@ function HomePage() {
       ) : (
         <>
           {todoList.length === 0 ? (
-            <EmptyListMessage />
+            <EmptyState message={EMPTY_LIST_MESSAGE} />
           ) : (
             <>
               <ListControls
