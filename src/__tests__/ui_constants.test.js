@@ -1,4 +1,4 @@
-import { EMPTY_LIST_MESSAGE } from '../constants';
+import { EMPTY_LIST_MESSAGE } from '../constants/ui';
 
 describe('Constants', () => {
   describe('EMPTY_LIST_MESSAGE', () => {

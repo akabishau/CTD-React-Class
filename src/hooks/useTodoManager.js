@@ -1,6 +1,6 @@
 import { useEffect, useState, useMemo } from 'react';
 import useLocalStorage from '../hooks/useLocalStorage';
-import * as todoService from '../services/airtable_api';
+import * as todoService from '../services/airtableAPI';
 
 function useTodoManager() {
   const [todoList, setTodoList] = useState([]);
