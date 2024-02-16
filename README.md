@@ -19,7 +19,14 @@ VITE_TABLE_NAME=your_table_name
 
 ## Technologies Used
 
-- React
-- Vite
-- Styled Components
-- Airtable
+The project leverages a variety of technologies and tools across different aspects of development:
+
+| Category         | Technology | Description |
+|------------------|------------|-------------|
+| FE Framework     | [React](https://reactjs.org/) | A JavaScript library for building user interfaces. |
+| Build Tool       | [Vite](https://vitejs.dev/) | A modern, fast build tool for JavaScript and CSS. |
+| Styling          | [Styled Components](https://styled-components.com/) | Utilizes tagged template literals for styling React components. |
+| Database         | [Airtable](https://airtable.com/) | A cloud-based platform that combines the simplicity of a spreadsheet with the complexity of a database. |
+| Testing          | [Vitest](https://vitest.dev/) + [MSW](https://mswjs.io/) | Uses Vitest for unit and integration testing, with Mock Service Worker for mocking API calls. |
+| Code Quality     | [ESLint](https://eslint.org/) + [Prettier](https://prettier.io/) | ESLint helps with code analysis and adherence to coding standards, while Prettier ensures code formatting consistency. |
+
