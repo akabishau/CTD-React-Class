@@ -5,7 +5,7 @@ import AddTodoForm from '../components/AddTodoForm';
 import EmptyState from '../components/EmptyState';
 import ListControls from '../components/ListControls';
 import useTodoManager from '../hooks/useTodoManager';
-import { EMPTY_LIST_MESSAGE } from '../constants/ui';
+import { EMPTY_LIST_MESSAGE } from '../constants/uiConfig';
 
 function HomePage() {
   const [
