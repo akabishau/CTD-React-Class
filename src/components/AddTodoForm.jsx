@@ -37,9 +37,9 @@ AddTodoForm.propTypes = {
 
 const Form = styled.form`
   background-color: #3a3a3a;
-  padding: 15px;
+  padding: 15px 15px 25px 15px;
   border-radius: 5px;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 `;
 
 const Wrapper = styled.div`

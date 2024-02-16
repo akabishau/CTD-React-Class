@@ -34,7 +34,8 @@ const Header = styled.header`
 `;
 
 const Footer = styled.footer`
-  background-color: #3a3a3a;
+  /* background-color: #3a3a3a; */
+  border-top: 1px solid #3a3a3a;
   height: 50px;
   padding: 0 20px;
   display: flex;
