@@ -1,11 +1,13 @@
 import styled from 'styled-components';
 import Navigation from '../components/Navigation';
+import Logo from '../components/Logo';
 
 export default function DefaultLayout({ children }) {
   const currentYear = new Date().getFullYear();
   return (
     <Wrapper>
       <Header>
+        <Logo />
         <Navigation />
       </Header>
       <main>{children}</main>
@@ -27,24 +29,26 @@ const Wrapper = styled.div`
 `;
 
 const Header = styled.header`
-  background-color: #3a3a3a;
-  color: black;
+  display: grid;
+  grid-template-columns: auto 1fr;
   height: 50px;
   margin-bottom: 20px;
+  padding: 0 10px 30px;
+  border-bottom: 1px solid #3a3a3a;
+  align-items: center;
 `;
 
 const Footer = styled.footer`
-  /* background-color: #3a3a3a; */
-  border-top: 1px solid #3a3a3a;
+  display: flex;
   height: 50px;
   padding: 0 20px;
-  display: flex;
   justify-content: space-between;
   align-items: center;
+  border-top: 1px solid #3a3a3a;
 `;
 
 const FooterText = styled.p`
   margin: 0;
   font-size: 14px;
-  color: #fff; // Adjust this to match your design
+  color: #fff;
 `;

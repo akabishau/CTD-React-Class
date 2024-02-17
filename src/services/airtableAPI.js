@@ -11,7 +11,6 @@ const headers = {
 export const fetchTodos = async () => {
   try {
     const response = await fetch(airtable_url, { headers });
-    console.log('URL', airtable_url);
     if (!response.ok) {
       throw new Error(`Error: ${response.status}`);
     }

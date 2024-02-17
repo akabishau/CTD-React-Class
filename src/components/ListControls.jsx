@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { SortButton } from '../styles/TextButtonStyles';
+import Button from './TextButton';
 import PropTypes from 'prop-types';
 
 function ListControls({ titleAscOrder, setTitleAscOrder }) {
@@ -9,11 +9,16 @@ function ListControls({ titleAscOrder, setTitleAscOrder }) {
 
   return (
     <ControlsContainer>
-      <SortButton onClick={handleTitleSortOrderChange}>
+      <Button
+        type="button"
+        variant="sort"
+        onClick={handleTitleSortOrderChange}
+        disabled={false}
+      >
         Sort by Title
         {/* $ is a prop that is passed to the styled component */}
         <Arrow $asc={titleAscOrder}>&uarr;</Arrow>
-      </SortButton>
+      </Button>
     </ControlsContainer>
   );
 }
