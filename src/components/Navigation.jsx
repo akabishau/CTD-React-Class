@@ -13,12 +13,10 @@ function Navigation() {
 const StyledNav = styled.nav`
   display: grid;
   grid-template-columns: auto auto;
-  justify-content: start;
+  justify-content: end;
   gap: 30px;
-  background-color: #3a3a3a;
   color: #ffffff;
   padding: 10px 15px;
-  margin-bottom: 120px;
   transition: background-color 0.3s;
 `;
 

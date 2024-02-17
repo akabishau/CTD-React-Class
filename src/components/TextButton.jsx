@@ -3,7 +3,8 @@ import * as ButtonStyles from '../styles/TextButtonStyles';
 
 // mapping object
 const BUTTON_VARIANTS = {
-  add: ButtonStyles.AddButton
+  add: ButtonStyles.AddButton,
+  sort: ButtonStyles.SortButton
 };
 
 export default function TextButton({
@@ -12,13 +13,14 @@ export default function TextButton({
   disabled = true,
   onClick = type !== 'submit'
     ? () => console.warn(`onClick is not provided for ${variant} button`)
-    : undefined
+    : undefined,
+  children
 }) {
   const Button = BUTTON_VARIANTS[variant];
 
   return (
     <Button type={type} disabled={disabled} onClick={onClick}>
-      {variant.toUpperCase()}
+      {children || variant.toUpperCase()}
     </Button>
   );
 }

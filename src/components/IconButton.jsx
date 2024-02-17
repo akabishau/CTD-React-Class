@@ -3,8 +3,8 @@ import { MdOutlineRemoveCircle } from 'react-icons/md';
 import PropTypes from 'prop-types';
 
 const RemoveIcon = styled(MdOutlineRemoveCircle)`
-  width: 1.5em;
-  height: 1.5em;
+  width: 1.7em;
+  height: 1.7em;
 `;
 
 const RemoveButton = styled.button`
