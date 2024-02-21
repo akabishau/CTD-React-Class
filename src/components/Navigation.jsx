@@ -5,6 +5,7 @@ function Navigation() {
   return (
     <StyledNav>
       <StyledLink to="/">Home</StyledLink>
+      <StyledLink to="/settings">Settings</StyledLink>
       <StyledLink to="/about">About</StyledLink>
     </StyledNav>
   );
@@ -12,7 +13,7 @@ function Navigation() {
 
 const StyledNav = styled.nav`
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: auto auto auto;
   justify-content: end;
   gap: 30px;
   color: #ffffff;
