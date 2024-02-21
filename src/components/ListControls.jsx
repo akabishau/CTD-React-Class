@@ -2,7 +2,13 @@ import styled from 'styled-components';
 import Button from './TextButton';
 import PropTypes from 'prop-types';
 
+import { useContext } from 'react';
+import { ThemeContext } from '../contexts/ThemeContext';
+import { THEMES } from '../constants/uiConfig';
+
 function ListControls({ titleAscOrder, setTitleAscOrder }) {
+  const { theme } = useContext(ThemeContext);
+
   const handleTitleSortOrderChange = () => {
     setTitleAscOrder(!titleAscOrder);
   };
@@ -15,7 +21,7 @@ function ListControls({ titleAscOrder, setTitleAscOrder }) {
         onClick={handleTitleSortOrderChange}
         disabled={false}
       >
-        Sort by Title
+        {THEMES[theme].buttons.sort}
         {/* $ is a prop that is passed to the styled component */}
         <Arrow $asc={titleAscOrder}>&uarr;</Arrow>
       </Button>
