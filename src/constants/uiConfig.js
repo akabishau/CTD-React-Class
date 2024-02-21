@@ -10,21 +10,25 @@ import { MdOutlineRemoveCircle as RemoveClassic } from 'react-icons/md';
 
 export const THEMES = {
   classic: {
-    heading: 'My List',
-    selector: 'Classic',
+    selector: 'Classic View',
     icon: LogoClassic,
     navigation: {
       home: {
         path: '/',
-        label: 'Home'
+        label: 'Home',
+        heading: 'My List'
       },
       settings: {
         path: '/settings',
-        label: 'Settings'
+        label: 'Settings',
+        heading: 'Tune Your Experience'
       },
       about: {
         path: '/about',
-        label: 'About'
+        label: 'About',
+        heading: 'Our Story',
+        description:
+          'This application serves as a digital checklist for your daily tasks. Keep track of what needs to be done and organize your day with ease.'
       }
     },
     buttons: {
@@ -34,27 +38,31 @@ export const THEMES = {
     }
   },
   mission: {
-    heading: 'My Missions',
     selector: 'Mission Impossible',
     icon: LogoMission,
     navigation: {
       home: {
         path: '/',
-        label: 'Missions'
+        label: 'Ops Center',
+        heading: 'Mission Dashboard'
       },
       settings: {
         path: '/settings',
-        label: 'Tactics'
+        label: 'Strategies',
+        heading: 'Set You Strategies'
       },
       about: {
         path: '/about',
-        label: 'Headquarters'
+        label: 'HQ',
+        heading: 'Intel Briefing',
+        description:
+          'Learn about the origins and objectives of our covert operations platform. Designed for elite operatives managing high-stakes tasks.'
       }
     },
     buttons: {
       add: 'DEPLOY',
       remove: RemoveMission,
-      sort: 'Arrange by Title'
+      sort: 'Arrange by Objective'
     }
   }
 };
