@@ -9,10 +9,38 @@ import LogoMission from '../assets/logo_mission.svg';
 export const THEMES = {
   classic: {
     selector: 'Classic',
-    icon: LogoClassic
+    icon: LogoClassic,
+    navigation: {
+      home: {
+        path: '/',
+        label: 'Home'
+      },
+      settings: {
+        path: '/settings',
+        label: 'Settings'
+      },
+      about: {
+        path: '/about',
+        label: 'About'
+      }
+    }
   },
   mission: {
     selector: 'Mission Impossible',
-    icon: LogoMission
+    icon: LogoMission,
+    navigation: {
+      home: {
+        path: '/',
+        label: 'Missions'
+      },
+      settings: {
+        path: '/settings',
+        label: 'Tactics'
+      },
+      about: {
+        path: '/about',
+        label: 'Headquarters'
+      }
+    }
   }
 };

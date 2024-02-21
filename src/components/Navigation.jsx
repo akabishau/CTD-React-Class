@@ -1,12 +1,21 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { useContext } from 'react';
+import { ThemeContext } from '../contexts/ThemeContext';
+import { THEMES } from '../constants/uiConfig';
 
 function Navigation() {
+  const { theme } = useContext(ThemeContext);
+  const navigation = THEMES[theme].navigation;
   return (
     <StyledNav>
-      <StyledLink to="/">Home</StyledLink>
-      <StyledLink to="/settings">Settings</StyledLink>
-      <StyledLink to="/about">About</StyledLink>
+      <StyledLink to={navigation.home.path}>{navigation.home.label}</StyledLink>
+      <StyledLink to={navigation.settings.path}>
+        {navigation.settings.label}
+      </StyledLink>
+      <StyledLink to={navigation.about.path}>
+        {navigation.about.label}
+      </StyledLink>
     </StyledNav>
   );
 }

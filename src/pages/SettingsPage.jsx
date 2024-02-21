@@ -10,7 +10,6 @@ export default function SettingsPage() {
   return (
     <DefaultLayout>
       <H1>Settings</H1>
-      <p>Coming soon...</p>
       <select
         value={theme}
         onChange={event => {
