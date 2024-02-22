@@ -10,9 +10,8 @@ export const EMPTY_LIST_MESSAGE = {
 
 import LogoClassic from '../assets/logo_classic.svg';
 import LogoMission from '../assets/logo_mission.svg';
-import { GiMineExplosion as RemoveMission } from 'react-icons/gi';
-import { MdOutlineRemoveCircle as RemoveClassic } from 'react-icons/md';
 
+// TODO: Consider using smaller objects for each theme
 export const THEMES = {
   classic: {
     selector: 'Classic View',
@@ -38,8 +37,8 @@ export const THEMES = {
     },
     buttons: {
       add: 'ADD',
-      remove: RemoveClassic,
       sort: 'Sort by Name'
+      // remove icon button is configured in IconButtonStyles.js
     }
   },
   mission: {
@@ -66,8 +65,8 @@ export const THEMES = {
     },
     buttons: {
       add: 'ENGAGE',
-      remove: RemoveMission,
       sort: 'Arrange by Objective'
+      // remove icon button is configured in IconButtonStyles.js
     }
   }
 };
