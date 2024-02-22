@@ -1,12 +1,15 @@
 export const EMPTY_LIST_MESSAGE = {
   title: "You don't have any TODOs now 🤔",
   action: "Let's start by creating the first one! 🚀"
-};
 
-// {
-//   title: "Mission dashboard clear, Commander 👩‍✈️👨‍✈️",
-//   action: "Strategize and assign new objectives. The field is yours! 📡"
-// }
+  // TODO: Add Theme-specific messages
+  /*
+  mission: {
+    title: "Mission dashboard clear, Commander 👩‍✈️👨‍✈️",
+    action: "Strategize and assign new objectives. The field is yours! 📡"
+  }
+  */
+};
 
 import LogoClassic from '../assets/logo_classic.svg';
 import LogoMission from '../assets/logo_mission.svg';

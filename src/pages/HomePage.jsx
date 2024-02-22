@@ -23,6 +23,7 @@ function HomePage() {
         <h3>Loading...</h3>
       ) : (
         <>
+          {/* TODO: review why empty list shows up for small time before fetching is complete */}
           {list.length === 0 ? (
             <EmptyState message={EMPTY_LIST_MESSAGE} />
           ) : (

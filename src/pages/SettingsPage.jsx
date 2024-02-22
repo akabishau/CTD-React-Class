@@ -10,6 +10,7 @@ export default function SettingsPage() {
   return (
     <DefaultLayout>
       <H1>{themeConfig.navigation.settings.heading}</H1>
+      {/* TODO: Create ThemeSelector component */}
       <select
         value={theme}
         onChange={event => {
