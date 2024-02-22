@@ -1,14 +1,13 @@
 import styled from 'styled-components';
 import { useContext } from 'react';
 import { ThemeContext } from '../contexts/ThemeContext';
-import { THEMES } from '../constants/uiConfig';
 
 export default function Logo() {
-  const { theme } = useContext(ThemeContext);
+  const { themeConfig } = useContext(ThemeContext);
 
   return (
     <LogoWrapper>
-      <img src={THEMES[theme].icon} alt="Logo" />
+      <img src={themeConfig.icon} alt="Logo" />
     </LogoWrapper>
   );
 }

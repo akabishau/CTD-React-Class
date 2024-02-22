@@ -3,6 +3,11 @@ export const EMPTY_LIST_MESSAGE = {
   action: "Let's start by creating the first one! 🚀"
 };
 
+// {
+//   title: "Mission dashboard clear, Commander 👩‍✈️👨‍✈️",
+//   action: "Strategize and assign new objectives. The field is yours! 📡"
+// }
+
 import LogoClassic from '../assets/logo_classic.svg';
 import LogoMission from '../assets/logo_mission.svg';
 import { GiMineExplosion as RemoveMission } from 'react-icons/gi';
@@ -16,7 +21,7 @@ export const THEMES = {
       home: {
         path: '/',
         label: 'Home',
-        heading: 'My List'
+        heading: 'Things to Do'
       },
       settings: {
         path: '/settings',

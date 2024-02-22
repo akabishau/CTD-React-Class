@@ -5,11 +5,11 @@ import { useContext } from 'react';
 import { ThemeContext } from '../contexts/ThemeContext';
 
 export default function SettingsPage() {
-  const { theme, setTheme } = useContext(ThemeContext);
+  const { themeConfig, theme, setTheme } = useContext(ThemeContext);
 
   return (
     <DefaultLayout>
-      <H1>{THEMES[theme].navigation.settings.heading}</H1>
+      <H1>{themeConfig.navigation.settings.heading}</H1>
       <select
         value={theme}
         onChange={event => {

@@ -6,19 +6,18 @@ import EmptyState from '../components/EmptyState';
 import ListControls from '../components/ListControls';
 import useTodoManager from '../hooks/useTodoManager';
 import { EMPTY_LIST_MESSAGE } from '../constants/uiConfig';
-import { TodoContext } from '../contexts/TodoContext';
-import { THEMES } from '../constants/uiConfig';
 import { useContext } from 'react';
+import { TodoContext } from '../contexts/TodoContext';
 import { ThemeContext } from '../contexts/ThemeContext';
 
 function HomePage() {
-  const { theme } = useContext(ThemeContext);
+  const { themeConfig } = useContext(ThemeContext);
   const { list, isListLoading, addTodo, removeTodo } = useContext(TodoContext);
   const { sortedList, titleAscOrder, setTitleAscOrder } = useTodoManager(list);
 
   return (
     <DefaultLayout>
-      <H1>{THEMES[theme].navigation.home.heading}</H1>
+      <H1>{themeConfig.navigation.home.heading}</H1>
       <AddTodoForm onAddTodo={addTodo} />
       {isListLoading ? (
         <h3>Loading...</h3>
