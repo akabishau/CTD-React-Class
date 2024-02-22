@@ -60,7 +60,7 @@ export const THEMES = {
       }
     },
     buttons: {
-      add: 'DEPLOY',
+      add: 'ENGAGE',
       remove: RemoveMission,
       sort: 'Arrange by Objective'
     }

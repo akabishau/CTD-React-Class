@@ -7,15 +7,18 @@ import ListControls from '../components/ListControls';
 import useTodoManager from '../hooks/useTodoManager';
 import { EMPTY_LIST_MESSAGE } from '../constants/uiConfig';
 import { TodoContext } from '../contexts/TodoContext';
+import { THEMES } from '../constants/uiConfig';
 import { useContext } from 'react';
+import { ThemeContext } from '../contexts/ThemeContext';
 
 function HomePage() {
+  const { theme } = useContext(ThemeContext);
   const { list, isListLoading, addTodo, removeTodo } = useContext(TodoContext);
   const { sortedList, titleAscOrder, setTitleAscOrder } = useTodoManager(list);
 
   return (
     <DefaultLayout>
-      <H1>My List</H1>
+      <H1>{THEMES[theme].navigation.home.heading}</H1>
       <AddTodoForm onAddTodo={addTodo} />
       {isListLoading ? (
         <h3>Loading...</h3>

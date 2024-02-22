@@ -13,6 +13,7 @@ function App() {
         <BrowserRouter>
           <div className="base-container">
             <Routes>
+              {/* TODO: get path from config */}
               <Route path="/" element={<HomePage />} />
               <Route path="/settings" element={<SettingsPage />} />
               <Route path="/about" element={<AboutPage />} />

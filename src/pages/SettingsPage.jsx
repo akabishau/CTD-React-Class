@@ -9,7 +9,7 @@ export default function SettingsPage() {
 
   return (
     <DefaultLayout>
-      <H1>Settings</H1>
+      <H1>{THEMES[theme].navigation.settings.heading}</H1>
       <select
         value={theme}
         onChange={event => {
