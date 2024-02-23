@@ -1,18 +1,25 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { useContext } from 'react';
+import { ThemeContext } from '../contexts/ThemeContext';
 
 function Navigation() {
+  const { themeConfig } = useContext(ThemeContext);
+  const navConfig = themeConfig.navigation;
   return (
     <StyledNav>
-      <StyledLink to="/">Home</StyledLink>
-      <StyledLink to="/about">About</StyledLink>
+      <StyledLink to={navConfig.home.path}>{navConfig.home.label}</StyledLink>
+      <StyledLink to={navConfig.settings.path}>
+        {navConfig.settings.label}
+      </StyledLink>
+      <StyledLink to={navConfig.about.path}>{navConfig.about.label}</StyledLink>
     </StyledNav>
   );
 }
 
 const StyledNav = styled.nav`
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: auto auto auto;
   justify-content: end;
   gap: 30px;
   color: #ffffff;

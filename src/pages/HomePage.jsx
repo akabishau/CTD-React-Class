@@ -6,26 +6,25 @@ import EmptyState from '../components/EmptyState';
 import ListControls from '../components/ListControls';
 import useTodoManager from '../hooks/useTodoManager';
 import { EMPTY_LIST_MESSAGE } from '../constants/uiConfig';
+import { useContext } from 'react';
+import { TodoContext } from '../contexts/TodoContext';
+import { ThemeContext } from '../contexts/ThemeContext';
 
 function HomePage() {
-  const [
-    todoList,
-    isLoading,
-    addTodo,
-    removeTodo,
-    titleAscOrder,
-    setTitleAscOrder
-  ] = useTodoManager();
+  const { themeConfig } = useContext(ThemeContext);
+  const { list, isListLoading, addTodo, removeTodo } = useContext(TodoContext);
+  const { sortedList, titleAscOrder, setTitleAscOrder } = useTodoManager(list);
 
   return (
     <DefaultLayout>
-      <H1>My List</H1>
+      <H1>{themeConfig.navigation.home.heading}</H1>
       <AddTodoForm onAddTodo={addTodo} />
-      {isLoading ? (
+      {isListLoading ? (
         <h3>Loading...</h3>
       ) : (
         <>
-          {todoList.length === 0 ? (
+          {/* TODO: review why empty list shows up for small time before fetching is complete */}
+          {list.length === 0 ? (
             <EmptyState message={EMPTY_LIST_MESSAGE} />
           ) : (
             <>
@@ -33,7 +32,7 @@ function HomePage() {
                 titleAscOrder={titleAscOrder}
                 setTitleAscOrder={setTitleAscOrder}
               />
-              <TodoList todoList={todoList} onRemoveTodo={removeTodo} />
+              <TodoList todoList={sortedList} onRemoveTodo={removeTodo} />
             </>
           )}
         </>

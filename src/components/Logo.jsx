@@ -1,11 +1,13 @@
 import styled from 'styled-components';
-// import LogoClassic from '../assets/icon_classic.svg';
-import LogoMission from '../assets/logo_mission.svg';
+import { useContext } from 'react';
+import { ThemeContext } from '../contexts/ThemeContext';
 
 export default function Logo() {
+  const { themeConfig } = useContext(ThemeContext);
+
   return (
     <LogoWrapper>
-      <img src={LogoMission} alt="Logo" />
+      <img src={themeConfig.icon} alt="Logo" />
     </LogoWrapper>
   );
 }
