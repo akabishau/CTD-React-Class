@@ -8,10 +8,10 @@ import useTodoManager from '../hooks/useTodoManager';
 import { EMPTY_LIST_MESSAGE } from '../constants/uiConfig';
 import { useContext } from 'react';
 import { TodoContext } from '../contexts/TodoContext';
-import { ThemeContext } from '../contexts/ThemeContext';
+import { useTheme } from '../hooks/useTheme';
 
 function HomePage() {
-  const { themeConfig } = useContext(ThemeContext);
+  const { themeConfig } = useTheme();
   const { list, isListLoading, addTodo, removeTodo } = useContext(TodoContext);
   const { sortedList, titleAscOrder, setTitleAscOrder } = useTodoManager(list);
 

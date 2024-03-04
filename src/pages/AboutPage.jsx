@@ -1,10 +1,9 @@
 import { H1 } from '../styles/TextStyles';
 import DefaultLayout from '../layouts/DefaultLayout';
-import { useContext } from 'react';
-import { ThemeContext } from '../contexts/ThemeContext';
+import { useTheme } from '../hooks/useTheme';
 
 export default function AboutPage() {
-  const { themeConfig } = useContext(ThemeContext);
+  const { themeConfig } = useTheme();
   return (
     <DefaultLayout>
       <H1>{themeConfig.navigation.about.heading}</H1>
