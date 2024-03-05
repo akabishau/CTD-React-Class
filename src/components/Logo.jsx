@@ -1,9 +1,8 @@
 import styled from 'styled-components';
-import { useContext } from 'react';
-import { ThemeContext } from '../contexts/ThemeContext';
+import { useTheme } from '../hooks/useTheme';
 
 export default function Logo() {
-  const { themeConfig } = useContext(ThemeContext);
+  const { themeConfig } = useTheme();
 
   return (
     <LogoWrapper>
