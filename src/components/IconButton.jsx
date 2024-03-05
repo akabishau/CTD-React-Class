@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
-import { useContext } from 'react';
-import { ThemeContext } from '../contexts/ThemeContext';
+import { useTheme } from '../hooks/useTheme';
 import * as ButtonStyles from '../styles/IconButtonStyles';
 
 // mapping object for availaile button variants
@@ -9,7 +8,7 @@ const BUTTON_VARIANTS = {
 };
 
 export default function IconButton({ type = 'button', variant, onClick }) {
-  const { theme } = useContext(ThemeContext);
+  const { theme } = useTheme();
 
   const Button = BUTTON_VARIANTS[variant]; // pick correct button based on variant
   const Icon = ButtonStyles.StyledIcon;

@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import * as ButtonStyles from '../styles/TextButtonStyles';
-import { useContext } from 'react';
-import { ThemeContext } from '../contexts/ThemeContext';
+import { useTheme } from '../hooks/useTheme';
 
 // mapping object
 const BUTTON_VARIANTS = {
@@ -18,7 +17,7 @@ export default function TextButton({
     : undefined,
   children
 }) {
-  const { themeConfig } = useContext(ThemeContext);
+  const { themeConfig } = useTheme();
 
   const Button = BUTTON_VARIANTS[variant];
 

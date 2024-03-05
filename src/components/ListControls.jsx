@@ -1,11 +1,10 @@
 import styled from 'styled-components';
 import Button from './TextButton';
 import PropTypes from 'prop-types';
-import { useContext } from 'react';
-import { ThemeContext } from '../contexts/ThemeContext';
+import { useTheme } from '../hooks/useTheme';
 
 function ListControls({ titleAscOrder, setTitleAscOrder }) {
-  const { themeConfig } = useContext(ThemeContext);
+  const { themeConfig } = useTheme();
 
   const handleTitleSortOrderChange = () => {
     setTitleAscOrder(!titleAscOrder);
