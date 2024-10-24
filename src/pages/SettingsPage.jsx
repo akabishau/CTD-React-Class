@@ -1,4 +1,5 @@
 import DefaultLayout from '../layouts/DefaultLayout';
+import ThemePicker from '../components/ThemePicker';
 import { THEMES } from '../constants/uiConfig';
 import { H1 } from '../styles/TextStyles';
 import { useTheme } from '../hooks/useTheme';
