@@ -17,7 +17,7 @@ import LogoMission from '../assets/logo_mission.svg';
 // TODO: Consider using smaller objects for each theme
 export const THEMES = {
   classic: {
-    selector: 'Classic View',
+    name: 'Classic View',
     icon: LogoClassic,
     navigation: {
       home: {
@@ -45,7 +45,7 @@ export const THEMES = {
     }
   },
   mission: {
-    selector: 'Mission Impossible',
+    name: 'Mission Impossible',
     icon: LogoMission,
     navigation: {
       home: {
